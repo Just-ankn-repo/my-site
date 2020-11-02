@@ -1,3 +1,4 @@
 import Controller from './controller';
 
-Controller.init();
+const controller = new Controller();
+controller.init();
