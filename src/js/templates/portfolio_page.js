@@ -1,3 +1,5 @@
+import '../../css/portfolio.css';
+
 export default function () {
   return `
     <section class="portfolio" id="portfolio">

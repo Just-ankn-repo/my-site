@@ -1,3 +1,5 @@
+import '../../css/about.css';
+
 export default function () {
   return `
     <section class="about" id="about">

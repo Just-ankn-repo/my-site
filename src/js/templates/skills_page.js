@@ -1,3 +1,5 @@
+import '../../css/skills.css';
+
 export default function () {
   return `
     <section class="skills" id="skills">

@@ -5,8 +5,12 @@ import utils from './utils/index';
 
 export default class Controller {
   constructor() {
-
+    this.router = new Router();
+    this.view = new View();
+    this.model = new Model();
   }
 
-  init() {}
+  init() {
+    this.view.init();
+  }
 }

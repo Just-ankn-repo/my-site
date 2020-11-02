@@ -1,7 +1,9 @@
+import '../../css/header.css';
+
 export default function () {
   return `
     <div class="logo">
-      <a href="#" class="logo__link"><img src="./images/logo2.svg" alt="logo" class="logo__img"></a>
+      <a href="#" class="logo__link"><img src="./assets/img/logo2.svg" alt="logo" class="logo__img"></a>
     </div>
     <nav class="nav">
         <ul class="nav__list">
