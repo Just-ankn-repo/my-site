@@ -1,3 +1,5 @@
+/* eslint-disable class-methods-use-this */
+
 import '../css/index.css';
 import templates from './templates/index';
 import constants from './constants/view_const';
@@ -13,5 +15,8 @@ export default class View {
     utils.backgroundAnimation();
   }
 
-  changePage(page) {}
+  changePage(page) {
+    constants.mainElm.innerHTML = templates[`${page}PageTpl`]();
+    utils.activateLink(page);
+  }
 }

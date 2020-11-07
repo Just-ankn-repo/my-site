@@ -35,7 +35,8 @@ header {
   font-size: 24px;
 }
 
-.nav__link:hover {
+.nav__link:hover, 
+.nav__link.active {
   text-decoration: none;
   color: #717171;
 }
@@ -53,6 +54,7 @@ header {
   transition: 0.25s linear;
 }
 
-.nav__link:hover:after {
+.nav__link:hover:after,
+.nav__link.active:after{
   transform: scale(1);
 }
