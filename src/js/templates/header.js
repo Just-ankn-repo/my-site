@@ -7,9 +7,9 @@ export default function () {
     </div>
     <nav class="nav">
         <ul class="nav__list">
-          <li class="nav__item"><a href="/about" class="nav__link">About</a></li>
-          <li class="nav__item"><a href="/skills" class="nav__link">Skills</a></li>
-          <li class="nav__item"><a href="/portfolio" class="nav__link">Portfolio</a></li>
+          <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
+          <li class="nav__item"><a href="#skills" class="nav__link">Skills</a></li>
+          <li class="nav__item"><a href="#portfolio" class="nav__link">Portfolio</a></li>
         </ul>
     </nav>
   `;
