@@ -15,6 +15,7 @@ export default function () {
   const alphaF = 0.03;
   const linkLineWidth = 0.8;
   const distLimit = 260;
+  let reqAnimationFrame;
 
   function randomNumFrom(min, max) {
     return Math.random() * (max - min) + min;
@@ -170,10 +171,12 @@ export default function () {
 
     addBallIfy();
 
-    window.requestAnimationFrame(render);
+    reqAnimationFrame = window.requestAnimationFrame(render);
   }
 
   function initBalls(num) {
+    balls = [];
+
     for (let i = 1; i <= num; i += 1) {
       balls.push({
         x: randomSidePos(canW),
@@ -198,12 +201,14 @@ export default function () {
   function goMovie() {
     initCanvas();
 
-    initBalls(60);
+    initBalls(30);
 
-    window.requestAnimationFrame(render);
+    window.cancelAnimationFrame(reqAnimationFrame);
+
+    reqAnimationFrame = window.requestAnimationFrame(render);
   }
 
   goMovie();
 
-  window.addEventListener('resize', () => initCanvas());
+  window.addEventListener('resize', () => goMovie());
 }
