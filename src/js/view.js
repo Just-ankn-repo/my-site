@@ -5,6 +5,65 @@ import templates from './templates/index';
 import constants from './constants/view_const';
 import utils from './utils/index';
 
+const testPortfolio = [
+  {
+    image: '',
+    title: 'Test Project',
+    description: 'test project description',
+    techList: ['html', 'css', 'javascript', 'webpack', 'eslint', 'eslint', 'eslint', 'eslint', 'eslint'],
+    demoLink: 'https://google.com/',
+    sourceLink: 'https://github.com/',
+  },
+  {
+    image: '',
+    title: 'Test Project',
+    description: 'test project description',
+    techList: ['html', 'css', 'javascript', 'webpack', 'eslint'],
+    demoLink: 'https://google.com/',
+    sourceLink: 'https://github.com/',
+  },
+  {
+    image: '',
+    title: 'Test Project',
+    description: 'test project description',
+    techList: ['html', 'css', 'javascript', 'webpack', 'eslint'],
+    demoLink: 'https://google.com/',
+    sourceLink: 'https://github.com/',
+  },
+  {
+    image: '',
+    title: 'Test Project',
+    description: 'test project description',
+    techList: ['html', 'css', 'javascript', 'webpack', 'eslint'],
+    demoLink: 'https://google.com/',
+    sourceLink: 'https://github.com/',
+  },
+  {
+    image: '',
+    title: 'Test Project',
+    description: 'test project description',
+    techList: ['html', 'css', 'javascript', 'webpack', 'eslint'],
+    demoLink: 'https://google.com/',
+    sourceLink: 'https://github.com/',
+  },
+  {
+    image: '',
+    title: 'Test Project',
+    description: 'test project description',
+    techList: ['html', 'css', 'javascript', 'webpack', 'eslint'],
+    demoLink: 'https://google.com/',
+    sourceLink: 'https://github.com/',
+  },
+  {
+    image: '',
+    title: 'Test Project',
+    description: 'test project description',
+    techList: ['html', 'css', 'javascript', 'webpack', 'eslint'],
+    demoLink: 'https://google.com/',
+    sourceLink: 'https://github.com/',
+  },
+];
+
 export default class View {
   constructor(controller) {
     this.controller = controller;
@@ -15,8 +74,9 @@ export default class View {
     utils.backgroundAnimation();
   }
 
-  changePage(page) {
-    constants.mainElm.innerHTML = templates[`${page}PageTpl`]();
+  changePage(page, data) {
+    data = testPortfolio;
+    constants.mainElm.innerHTML = templates[`${page}PageTpl`](data);
     utils.activateLink(page);
   }
 }

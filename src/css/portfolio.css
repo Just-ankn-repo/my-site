@@ -2,3 +2,29 @@
   display: flex;
   align-items: center;
 }
+
+.portfolio__content {
+  margin-left: 50px;
+  height: 100%;
+  overflow: hidden;
+}
+
+.portfolio__list {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  overflow-x: scroll;
+  list-style: none;
+}
+
+.portfolio-card__wrapper {
+  margin-left: 50px;
+}
+
+.portfolio-card__wrapper:nth-child(1) {
+  margin: 0;
+}
+
+.portfolio-card__wrapper.active {
+  position: absolute;
+}
