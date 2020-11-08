@@ -20,8 +20,10 @@ body::-webkit-scrollbar {
 }
 
 section {
+  position: relative;
   height: 100vh;
   padding: 70px 50px;
+  z-index: 2;
 }
 
 h2 {
@@ -31,4 +33,5 @@ h2 {
 
 .background {
   position: fixed;
+  z-index: 1;
 }
