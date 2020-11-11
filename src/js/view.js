@@ -2,71 +2,29 @@
 
 import '../css/index.css';
 import templates from './templates/index';
+import listeners from './listeners/index';
 import constants from './constants/view_const';
 import utils from './utils/index';
 
-const testPortfolio = [
-  {
-    image: '',
-    title: 'Test Project',
-    description: 'test project description',
-    techList: ['html', 'css', 'javascript', 'webpack', 'eslint', 'eslint', 'eslint', 'eslint', 'eslint'],
-    demoLink: 'https://google.com/',
-    sourceLink: 'https://github.com/',
-  },
-  {
-    image: '',
-    title: 'Test Project',
-    description: 'test project description',
-    techList: ['html', 'css', 'javascript', 'webpack', 'eslint'],
-    demoLink: 'https://google.com/',
-    sourceLink: 'https://github.com/',
-  },
-  {
-    image: '',
-    title: 'Test Project',
-    description: 'test project description',
-    techList: ['html', 'css', 'javascript', 'webpack', 'eslint'],
-    demoLink: 'https://google.com/',
-    sourceLink: 'https://github.com/',
-  },
-  {
-    image: '',
-    title: 'Test Project',
-    description: 'test project description',
-    techList: ['html', 'css', 'javascript', 'webpack', 'eslint'],
-    demoLink: 'https://google.com/',
-    sourceLink: 'https://github.com/',
-  },
-  {
-    image: '',
-    title: 'Test Project',
-    description: 'test project description',
-    techList: ['html', 'css', 'javascript', 'webpack', 'eslint'],
-    demoLink: 'https://google.com/',
-    sourceLink: 'https://github.com/',
-  },
-  {
-    image: '',
-    title: 'Test Project',
-    description: 'test project description',
-    techList: ['html', 'css', 'javascript', 'webpack', 'eslint'],
-    demoLink: 'https://google.com/',
-    sourceLink: 'https://github.com/',
-  },
-  {
-    image: '',
-    title: 'Test Project',
-    description: 'test project description',
-    techList: ['html', 'css', 'javascript', 'webpack', 'eslint'],
-    demoLink: 'https://google.com/',
-    sourceLink: 'https://github.com/',
-  },
-];
+const generatePortfolio = (count) => {
+  const newArray = [];
+  for (let i = 0; i < count; i += 1) {
+    newArray.push({
+      image: `./assets/img/project${i}.jpg`,
+      title: `Test Project ${i}`,
+      shortDescription: `Test project ${i} description`,
+      tags: ['html', 'css', 'javascript'],
+      demoLink: 'https://google.com/',
+      sourceLink: 'https://github.com/',
+    });
+  }
+  return newArray;
+};
 
 export default class View {
   constructor(controller) {
     this.controller = controller;
+    this.removeListeners = () => {};
   }
 
   init() {
@@ -75,8 +33,10 @@ export default class View {
   }
 
   changePage(page, data) {
-    data = testPortfolio;
+    data = generatePortfolio(18);
+    this.removeListeners();
     constants.mainElm.innerHTML = templates[`${page}PageTpl`](data);
+    this.removeListeners = listeners[`${page}Listener`]();
     utils.activateLink(page);
   }
 }
