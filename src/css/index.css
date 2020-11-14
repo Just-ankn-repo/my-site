@@ -35,10 +35,10 @@ body::-webkit-scrollbar-thumb {
 
 section {
   position: relative;
-  height: 100vh;
+  /* height: 100vh; */
   padding: 70px 50px;
   z-index: 2;
-  animation: scale-in 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  /* animation: scale-in 1s cubic-bezier(0.175, 0.885, 0.32, 1.275); */
 }
 
 @keyframes scale-in {

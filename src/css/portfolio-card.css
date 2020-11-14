@@ -1,4 +1,4 @@
-.card {
+.portfolio-card {
   position: relative;
   width: 280px;
   height: 180px;
@@ -6,19 +6,19 @@
   user-select: none;
 }
 
-.card__image-wrapper {
+.portfolio-card__image-wrapper {
   width: 100%;
   height: 100%;
   object-fit: fill;
   overflow: hidden;
 }
 
-.card__image {
+.portfolio-card__image {
   width: 100%;
   height: 100%;
 }
 
-.card__info-wrapper {
+.portfolio-card__info-wrapper {
   position: absolute;
   top: 0;
   width: 100%;
@@ -29,52 +29,52 @@
   flex-direction: column;
 }
 
-.card__info-wrapper:hover {
+.portfolio-card__info-wrapper:hover {
   opacity: 1;
   transition: opacity 0.5s linear;
 }
 
-.card__info-text {
+.portfolio-card__info-text {
   display: flex;
   flex-direction: column;
   flex: 1;
   overflow: hidden;
 }
 
-.card__info-title {
+.portfolio-card__info-title {
   text-align: center;
   margin: 10px 0;
 }
 
-.card__info-description {
+.portfolio-card__info-description {
   flex: 1;
   text-indent: 10px;
 }
 
-.card__info-links {
+.portfolio-card__info-links {
   text-align: center;
   margin-bottom: 20px;
 }
 
-.card__link {
+.portfolio-card__link {
   padding: 5px;
   border: 1px solid;
   text-decoration: none;
 }
 
-.card__link--blue {
+.portfolio-card__link--blue {
   color: #158efd;
 }
 
-.card__link--blue:hover {
+.portfolio-card__link--blue:hover {
   animation: animate-link 0.25s linear reverse forwards;
 }
 
-.card__link--gray {
+.portfolio-card__link--gray {
   color: #717171;
 }
 
-.card__link--gray:hover {
+.portfolio-card__link--gray:hover {
   animation: animate-link 0.25s linear forwards;
 }
 
