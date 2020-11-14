@@ -1,12 +1,16 @@
-@import url("https://fonts.googleapis.com/css?family=Montserrat:400,700");
+@import url('https://fonts.googleapis.com/css2?family=Aleo:wght@400;700&display=swap');
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Aleo', serif;
   font-weight: 400;
   color: #158efd;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -35,13 +39,48 @@ body::-webkit-scrollbar-thumb {
 
 section {
   position: relative;
-  /* height: 100vh; */
   padding: 70px 50px;
   z-index: 2;
-  /* animation: scale-in 1s cubic-bezier(0.175, 0.885, 0.32, 1.275); */
 }
 
-@keyframes scale-in {
-  from {transform: scale(0); left: 50vh; opacity: 0;}
-  to {transform: scale(1); left: 0; opacity: 1;}
+
+footer {
+  position: relative;
+  z-index: 2;
+}
+
+.footer__container {
+  width: 100%;
+  padding: 20px 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.socal-media__list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  list-style: none;
+}
+
+.socal-media__item {
+  margin: 10px;
+  padding: 10px;
+  width: 52px;
+  height: auto;
+  cursor: pointer;
+}
+
+.socal-media__item svg {
+  fill: #717171;
+}
+
+.socal-media__item svg:hover {
+  fill: #158efd;
+}
+
+.copyright {
+  font-size: 1rem;
+  color: #717171;
 }

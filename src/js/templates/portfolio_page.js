@@ -3,7 +3,7 @@ import portfolioCardTpl from './portfolio_card';
 
 export default function (data) {
   return `
-    <section class="portfolio">
+    <section class="portfolio" id="projects">
       <div class="portfolio__container">
         <ul class="portfolio__filter">
           <li class="portfolio__filter-item" tag="">All</li>

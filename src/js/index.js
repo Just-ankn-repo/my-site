@@ -1,4 +1,5 @@
 import '../css/index.css';
+import '../css/about.css';
 import templates from './templates/index';
 import listeners from './listeners/index';
 import constants from './constants/view_const';
@@ -26,8 +27,7 @@ const generateSkills = {
   more: [1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 1, 2, 3, 4, 5],
 };
 
-constants.headerElm.innerHTML = templates.headerTpl();
+// constants.headerElm.innerHTML = templates.headerTpl();
 utils.backgroundAnimation();
-constants.mainElm.innerHTML += templates.aboutPageTpl();
-constants.mainElm.innerHTML += templates.skillsPageTpl(generateSkills);
+// constants.mainElm.innerHTML += templates.aboutPageTpl();
 constants.mainElm.innerHTML += templates.portfolioPageTpl(generatePortfolio());

@@ -1,6 +1,6 @@
 /* global document */
 
 export default ({
-  headerElm: document.getElementById('header'),
-  mainElm: document.getElementById('main'),
+  headerElm: document.querySelector('header'),
+  mainElm: document.querySelector('main'),
 });
