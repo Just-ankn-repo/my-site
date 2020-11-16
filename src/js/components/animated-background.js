@@ -1,9 +1,9 @@
 /* global document, window */
 
-export default function () {
+export default function (container) {
   const canvas = document.createElement('CANVAS');
-  canvas.classList = 'background';
-  document.body.prepend(canvas);
+  canvas.style = 'position: fixed; z-index: 1;';
+  document.querySelector(container).prepend(canvas);
 
   let canW = parseInt(canvas.width, 10);
   let canH = parseInt(canvas.height, 10);

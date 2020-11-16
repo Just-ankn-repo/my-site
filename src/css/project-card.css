@@ -1,4 +1,4 @@
-.portfolio-card {
+.project-card {
   position: relative;
   width: 280px;
   height: 180px;
@@ -6,19 +6,19 @@
   user-select: none;
 }
 
-.portfolio-card__image-wrapper {
+.project-card__image-wrapper {
   width: 100%;
   height: 100%;
   object-fit: fill;
   overflow: hidden;
 }
 
-.portfolio-card__image {
+.project-card__image {
   width: 100%;
   height: 100%;
 }
 
-.portfolio-card__info-wrapper {
+.project-card__info-wrapper {
   position: absolute;
   top: 0;
   width: 100%;
@@ -29,52 +29,52 @@
   flex-direction: column;
 }
 
-.portfolio-card__info-wrapper:hover {
+.project-card__info-wrapper:hover {
   opacity: 1;
   transition: opacity 0.5s linear;
 }
 
-.portfolio-card__info-text {
+.project-card__info-text {
   display: flex;
   flex-direction: column;
   flex: 1;
   overflow: hidden;
 }
 
-.portfolio-card__info-title {
+.project-card__info-title {
   text-align: center;
   margin: 10px 0;
 }
 
-.portfolio-card__info-description {
+.project-card__info-description {
   flex: 1;
   text-indent: 10px;
 }
 
-.portfolio-card__info-links {
+.project-card__info-links {
   text-align: center;
   margin-bottom: 20px;
 }
 
-.portfolio-card__link {
+.project-card__link {
   padding: 5px;
   border: 1px solid;
   text-decoration: none;
 }
 
-.portfolio-card__link--blue {
+.project-card__link--blue {
   color: #158efd;
 }
 
-.portfolio-card__link--blue:hover {
+.project-card__link--blue:hover {
   animation: animate-link 0.25s linear reverse forwards;
 }
 
-.portfolio-card__link--gray {
+.project-card__link--gray {
   color: #717171;
 }
 
-.portfolio-card__link--gray:hover {
+.project-card__link--gray:hover {
   animation: animate-link 0.25s linear forwards;
 }
 
