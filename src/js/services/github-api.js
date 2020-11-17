@@ -1,21 +1,23 @@
 /* global fetch window */
 
 export default async () => {
-  const getAllPubRepo = await fetch('https://api.github.com/users/just-ankn-repo/repos', {
+  const getAllPubRepo = await fetch('https://just-ankn-github-proxy.herokuapp.com/users/just-ankn-repo/repos', {
     method: 'GET',
     headers: {
+      'Target-Endpoint': 'api.github.com',
+      'Target-Protocol': 'https',
       'Content-Type': 'application/json',
-      Authorization: 'token 039bc979bf0f41ad54f394d192cb6696fbb1200a',
     },
   });
 
   const getInfoAboutRepo = await getAllPubRepo.json();
 
-  const getAllReadmes = await Promise.all(getInfoAboutRepo.map((repo) => fetch(`https://api.github.com/repos/just-ankn-repo/${repo.name}/readme`, {
+  const getAllReadmes = await Promise.all(getInfoAboutRepo.map((repo) => fetch(`https://just-ankn-github-proxy.herokuapp.com/repos/just-ankn-repo/${repo.name}/readme`, {
     method: 'GET',
     headers: {
+      'Target-Endpoint': 'api.github.com',
+      'Target-Protocol': 'https',
       'Content-Type': 'application/json',
-      Authorization: 'token 039bc979bf0f41ad54f394d192cb6696fbb1200a',
     },
   })));
 
@@ -26,7 +28,6 @@ export default async () => {
   const projects = decodedContent.reduce((acc, project) => {
     const regex = new RegExp('Name: "(.*)".*\nDescription: "(.*)".*\nLang: "(.*)".*\nPreviewImage: "(.*)".*\nDemoLink: "(.*)".*\nSourceLink: "(.*)".*\nStatus: "(.*)"', 'g');
     const parsed = regex.exec(project);
-
     if (parsed && parsed[7] === 'portfolio') {
       acc.push({
         title: parsed[1],
