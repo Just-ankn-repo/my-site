@@ -11,6 +11,7 @@
 
 html {
   scroll-behavior: smooth;
+  font-size: calc(100vw / 100);
 }
 
 body {
@@ -58,7 +59,7 @@ section {
 
 .about__container {
   position: absolute;
-  right: 60px;
+  left: 50%;
   text-align: right;
 }
 
@@ -83,7 +84,7 @@ section {
 a::before {
   content: attr(data-text); 
   position: absolute; 
-  top: -1.7px; 
+  top: -2.5px; 
   left: 0; 
   text-decoration: underline;
   color:  #158efd; 
@@ -236,18 +237,42 @@ footer {
   color: #717171;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 1440px) {
   html {
-    font-size: 10px;
+    font-size: calc(100vw / 70);
   }
 
-  section {
+    section {
     padding: 70px 5px;
   }
 }
 
-@media (min-width: 1366px) {
+@media (max-width: 1000px) {
   html {
-    font-size: 18px;
+    font-size: calc(100vw / 60);
+  }
+
+  .about__container {
+    left: 40%;
+  }
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: calc(100vw / 50);
+  }
+
+  .about__container {
+    left: 30%;
+  }
+}
+
+@media (max-width: 500px) {
+  html {
+    font-size: calc(100vw / 40);
+  }
+
+  .about__container {
+    left: 15%;
   }
 }
