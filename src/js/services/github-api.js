@@ -1,32 +1,26 @@
 /* global fetch window */
 
-export default async () => {
-  const getAllPubRepo = await fetch('https://just-ankn-github-proxy.herokuapp.com/users/just-ankn-repo/repos', {
-    method: 'GET',
-    headers: {
-      'Target-Endpoint': 'api.github.com',
-      'Target-Protocol': 'https',
-      'Content-Type': 'application/json',
-    },
-  });
+const fetchByUrl = async (url, params) => {
+  const response = await fetch(url, params);
+  const parsedResponse = await response.json();
 
-  const getInfoAboutRepo = await getAllPubRepo.json();
+  return parsedResponse;
+};
 
-  const getAllReadmes = await Promise.all(getInfoAboutRepo.map((repo) => fetch(`https://just-ankn-github-proxy.herokuapp.com/repos/just-ankn-repo/${repo.name}/readme`, {
-    method: 'GET',
-    headers: {
-      'Target-Endpoint': 'api.github.com',
-      'Target-Protocol': 'https',
-      'Content-Type': 'application/json',
-    },
-  })));
+const getProjects = async () => {
+  const apiUrl = 'https://api.github.com';
+  const getAllRepoUrl = `${apiUrl}/users/just-ankn-repo/repos`;
+  const params = { headers: { Authorization: 'token a54883163cd6baae42e13acbb7671a4f79fb450f' } };
+  const allRepo = await fetchByUrl(getAllRepoUrl, params);
+  const allReadme = await Promise.all(allRepo.map(async (repo) => {
+    const getFileFromRepoUrl = `${apiUrl}/repos/just-ankn-repo/${repo.name}/readme`;
+    const fileFromRepo = await fetchByUrl(getFileFromRepoUrl, params);
 
-  const readmeResponse = await Promise.all(getAllReadmes.map((response) => response.json()));
-
-  const decodedContent = await readmeResponse.map((response) => window.atob(response.content));
-
-  const projects = decodedContent.reduce((acc, project) => {
-    const regex = new RegExp('Name: "(.*)".*\nDescription: "(.*)".*\nLang: "(.*)".*\nPreviewImage: "(.*)".*\nDemoLink: "(.*)".*\nSourceLink: "(.*)".*\nStatus: "(.*)"', 'g');
+    return fileFromRepo;
+  }));
+  const decodedContent = allReadme.map((response) => window.atob(response.content));
+  const projectsArr = decodedContent.reduce((acc, project) => {
+    const regex = new RegExp('.*Name: "(.*)".*\nDescription: "(.*)".*\nLang: "(.*)".*\nPreviewImage: "(.*)".*\nDemoLink: "(.*)".*\nSourceLink: "(.*)".*\nStatus: "(.*)"', 'g');
     const parsed = regex.exec(project);
     if (parsed && parsed[7] === 'portfolio') {
       acc.push({
@@ -42,5 +36,21 @@ export default async () => {
     return acc;
   }, []);
 
+  return projectsArr;
+};
+
+export default async () => {
+  const localstorage = JSON.parse(window.localStorage.getItem('projects'));
+  const nowDate = new Date().getTime();
+
+  if (localstorage && localstorage.expireAt > nowDate) {
+    return localstorage.value;
+  }
+
+  const projects = await getProjects();
+  const expDate = nowDate + 86400000;
+
+  window.localStorage.setItem('projects', JSON.stringify({ value: projects, expireAt: expDate }));
+
   return projects;
-}
+};

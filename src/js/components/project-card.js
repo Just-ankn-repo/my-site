@@ -8,7 +8,7 @@ export default function (project) {
     </div>
     <div class="project-card__info-wrapper">
       <div class="project-card__info-text">
-        <h2 class="project-card__info-title">${project.title}</h2>
+        <h3 class="project-card__info-title">${project.title}</h3>
         <p class="project-card__info-description">${project.shortDescription}</p>
       </div>
       <div class="project-card__info-links">
