@@ -1,9 +1,3 @@
-.projects-gallery {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .projects-gallery__container {
   width: 100%;
   height: 100%;
@@ -67,4 +61,20 @@
   padding: 0;
   margin: 0;
   transition: all 0.15s linear;
+}
+
+@media (min-width: 1366px) {
+  .projects-gallery__card {
+    width: 450px;
+    height: 300px;
+    padding: 10px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .projects-gallery__card {
+    width: 600px;
+    height: 400px;
+    padding: 20px;
+  }
 }

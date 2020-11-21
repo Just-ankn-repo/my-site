@@ -9,13 +9,12 @@
 .project-card__image-wrapper {
   width: 100%;
   height: 100%;
-  object-fit: fill;
-  overflow: hidden;
 }
 
 .project-card__image {
   width: 100%;
   height: 100%;
+  object-fit: cover;
 }
 
 .project-card__info-wrapper {
@@ -82,4 +81,20 @@
   0% { color: #717171; }
   50% { border-image: linear-gradient(45deg, #158efd,  #717171) 10; }
   100% { color: #158efd; }
+}
+
+@media (min-width: 1366px) {
+  .project-card {
+    width: 420px;
+    height: 270px;
+    margin: 10px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .project-card {
+    width: 560px;
+    height: 360px;
+    margin: 20px;
+  }
 }
