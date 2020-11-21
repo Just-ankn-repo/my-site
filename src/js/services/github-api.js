@@ -1,6 +1,6 @@
 /* global fetch window */
 
-const fetchByUrl = async (url, params) => {
+const fetchByUrl = async (url, params = {}) => {
   const response = await fetch(url, params);
   const parsedResponse = await response.json();
 
@@ -10,7 +10,7 @@ const fetchByUrl = async (url, params) => {
 const getProjects = async () => {
   const apiUrl = 'https://api.github.com';
   const getAllRepoUrl = `${apiUrl}/users/just-ankn-repo/repos`;
-  const params = { headers: { Authorization: 'token a54883163cd6baae42e13acbb7671a4f79fb450f' } };
+  const params = { method: 'GET' };
   const allRepo = await fetchByUrl(getAllRepoUrl, params);
   const allReadme = await Promise.all(allRepo.map(async (repo) => {
     const getFileFromRepoUrl = `${apiUrl}/repos/just-ankn-repo/${repo.name}/readme`;
